@@ -7,9 +7,17 @@
 
 /* Base page styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  /* page background and main body font */
+  font-family: 'Merriweather', serif; /* body text for explanations and paragraphs */
+  background-color: #aeb0b5; /* requested page background */
+  color: #000; /* black text */
   padding: 20px;
+}
+
+/* Headings use Helvetica */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica", Arial, sans-serif;
+  color: #000;
 }
 
 /* Centered container */
@@ -71,7 +79,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: #bfbfbf;
+  background-color: #e59892; /* updated hover color */
 }
 
 /* Stack horizontally on wider screens */
@@ -122,6 +130,11 @@ button:hover {
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.25s ease; /* smooth scaling */
+  cursor: pointer;
+}
+.gallery-item img:hover {
+  transform: scale(1.05);
 }
 
 .gallery-item p {
@@ -141,4 +154,61 @@ button:hover {
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+}
+.modal.open {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  max-width: 900px;
+  width: calc(100% - 40px);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 20px;
+  z-index: 1001;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.modal-date {
+  color: #666;
+  margin-bottom: 8px;
+}
+.modal-explanation {
+  white-space: pre-wrap;
+  line-height: 1.4;
+  margin-top: 10px;
 }
